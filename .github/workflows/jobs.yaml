@@ -20,6 +20,7 @@ jobs:
         run: |
           echo "Running from DEV"
   STAGING:
+    needs: DEV
     environment: staging
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +31,7 @@ jobs:
         run: |
           echo "Running from staging"
   PROD:
+    needs: prod
     environment: prod
     runs-on: ubuntu-latest
     steps:
