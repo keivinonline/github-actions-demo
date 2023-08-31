@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "Running from staging"
   PROD:
-    needs: prod
+    needs: STAGING
     environment: prod
     runs-on: ubuntu-latest
     steps:
