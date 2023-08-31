@@ -1,0 +1,41 @@
+name: Workflow pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: environment to run workflow
+        required: true
+        default: 'dev'
+
+jobs:
+  DEV:
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run a dev script
+        run: |
+          echo "Running from DEV"
+  STAGING:
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run a staging script
+        run: |
+          echo "Running from staging"
+  PROD:
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run a PROD script
+        run: |
+          echo "Running from PROD"
